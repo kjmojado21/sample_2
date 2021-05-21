@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: 0;
+
+        }
+
+        .header {
+            display: flex;
+            justify-content: center;
+            background-color: aquamarine;
+            padding: 20px 40px;
+        }
+
+        input,
+        button {
+            display: inline-block;
+            padding: 10px;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+        }
+
+        li:nth-child(even) {
+            background-color: aquamarine;
+        }
+
+        li {
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        span {
+            display: inline-block;
+            /* background-color: cadetblue; */
+            padding: 10px;
+            cursor: pointer;
+
+        }
+
+        span:hover {
+            background-color: cadetblue;
+        }
+
+        .close:hover {
+            background-color: cadetblue;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="header">
+        <input type="text" name="" id="newValue">
+        <button id="add">Add new</button>
+    </div>
+
+    <ul id="list">
+        <li> List item 1 </li>
+        <li> List item 2 </li>
+        <li> List item 3 </li>
+    </ul>
+
+
+
+
+    <script>
+        // create a close buttong and add it to every li
+        var item = document.getElementsByTagName('li');
+        var i;
+
+
+        for (i = 0; i < item.length; i++) {
+            // adding span
+
+            // create span element
+            var span = document.createElement('span');
+
+            var spanText = document.createTextNode('x');
+            // creating x button
+            span.className = "close";
+
+            span.appendChild(spanText);
+
+            item[i].appendChild(span);
+
+
+
+
+        }
+
+        // cliking the close span. it will hide the item
+
+        var elemClose = document.getElementsByClassName('close');
+        var i;
+        for (i = 0; i < elemClose.length; i++) {
+
+            elemClose[i].onclick = function () {
+                var parent = this.parentElement.style.display = "none";
+            }
+        }
+
+        var elemText = document.getElementsByTagName('li');
+        var i;
+        for (i = 0; i < elemText.length; i++) {
+
+            elemText[i].onclick = function () {
+                this.style.textDecoration = "line-through";
+            }
+        }
+
+
+
+
+
+
+        function display() {
+            var userText = document.getElementById('newValue');
+
+            var elList = document.createElement('li');
+            // creating li tag
+
+            var text = document.createTextNode(userText.value);
+            // getting the user text
+            elList.appendChild(text);
+            // putting the text inside li <li> text <li>
+
+            var elUl = document.getElementById('list');
+            elUl.appendChild(elList)
+            // putting the li inside the ul
+            // <ul> <li> text <li> </ul>
+
+
+            userText.value = "";
+
+
+            // create span element
+            var span = document.createElement('span');
+
+            var spanText = document.createTextNode('x');
+            // creating x button
+
+            span.appendChild(spanText);
+            span.className = "close";
+
+
+
+            elList.appendChild(span);
+
+            var elemClose = document.getElementsByClassName('close');
+            var i;
+            for (i = 0; i < elemClose.length; i++) {
+
+                elemClose[i].onclick = function () {
+                    var parent = this.parentElement.style.display = "none";
+                }
+            }
+
+            var elemText = document.getElementsByTagName('li');
+            var i;
+            for (i = 0; i < elemClose.length; i++) {
+
+                elemText[i].onclick = function () {
+                    var parent = this.style.textDecoration = "line-through";
+                }
+            }
+
+
+
+
+        }
+
+        document.getElementById('add').addEventListener('click', display);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // var text = document.createTextNode('List item 2');
+
+        // elList.appendChild(text);
+
+
+        // var elUl = document.getElementById('list');
+        // // elUl.prepend(elList);
+
+        // var elItem = document.getElementsByTagName('li')[0];
+        // elUl.insertBefore(elList,elItem);
+    </script>
+</body>
+
+</html>

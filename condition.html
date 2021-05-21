@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <form action="" > -->
+       <!-- <select name="time" id="time">
+           <option value="#" hidden>Choose time</option>
+           <option value="morning" >morning</option>
+           <option value="afternoon" >afternoon</option>
+           <option value="night" >Night</option>
+          
+       </select> 
+       <button id="btn">GO</button> -->
+    <!-- </form> -->
+    <script>
+     
+    //    var elemBtn = document.getElementById('btn');
+
+    //    elemBtn.onclick = function(){
+    //          var selectTime = document.getElementById('time');
+
+    //          console.log(selectTime.value);
+    //         if(selectTime.value=='morning'){
+    //            document.body.style.backgroundColor="yellow";
+    //         }else if(selectTime.value=='afternoon'){
+    //             document.body.style.backgroundColor="orange";
+    //         }else{
+    //             document.body.style.backgroundColor="black";
+    //         }   
+
+
+    //         // using ternary operator
+    //         // var selectTime = document.getElementById('time').value;   
+    //         // (selectTime=='morning')? document.body.style.backgroundColor="yellow" :(selectTime=='afternoon')?  document.body.style.backgroundColor="orange": document.body.style.backgroundColor="black"; 
+    //    }
+
+
+        var today = new Date();
+        var hour = today.getHours();
+
+        var color;
+
+        (hour > 18)? color="darkblue":(hour > 12)? color="orange": color = 'yellow';
+
+        document.body.style.backgroundColor = color;
+        
+
+
+
+
+     
+
+    </script>
+</body>
+</html>
